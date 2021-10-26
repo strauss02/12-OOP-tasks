@@ -3,10 +3,11 @@
 class ClassicGuitar {
   constructor(_mfgYear, _brand, _price, _stringNum = 6, _isUsed) {
     this.yearOfManufacting = _mfgYear
-    this.brand = _brand
-    this.price = _price
+    console.log(`test`)
     this.numberOfStrings = _stringNum
+    this.price = _price
     this.isUsed = _isUsed
+    this.brand = _brand
     // this.id = //randomID
   }
 
@@ -19,20 +20,21 @@ class ClassicGuitar {
   }
 
   set price(num) {
-    this.price = num
+    this._price = num
   }
 
   get price() {
     return this.price
   }
 
+  get brandName() {
+    return this._brand
+  }
+
   get manufactureYear() {
     return this.yearOfManufacting
   }
 
-  get brand() {
-    return this.brand
-  }
   get id() {
     return this.id
   }
