@@ -9,4 +9,22 @@ class ClassicGuitar {
     this.isUsed = _isUsed
     // this.id = //randomID
   }
+  play() {
+    return `🎶🎶🎶`
+  }
+
+  get manufactureYear() {
+    return this.yearOfManufacting
+  }
+
+  get brand() {
+    return this.brand
+  }
+  get id() {
+    return this.id
+  }
 }
+
+const gibsonSG = new ClassicGuitar(1975, `Gibson`, 12000, 6, false)
+
+console.log(gibsonSG.play())
