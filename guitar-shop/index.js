@@ -13,6 +13,14 @@ class ClassicGuitar {
     return `🎶🎶🎶`
   }
 
+  set price(num) {
+    this.price = num
+  }
+
+  get price() {
+    return this.price
+  }
+
   get manufactureYear() {
     return this.yearOfManufacting
   }
