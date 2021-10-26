@@ -9,6 +9,11 @@ class ClassicGuitar {
     this.isUsed = _isUsed
     // this.id = //randomID
   }
+
+  static detectSound(sound) {
+    return sound === `🎸` ? 'ElectricGuitar' : 'BassGuitar'
+  }
+
   play() {
     return `🎶🎶🎶`
   }
