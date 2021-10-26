@@ -40,6 +40,12 @@ class ClassicGuitar {
   }
 }
 
+class ElectricGuitar extends ClassicGuitar {
+  constructor(_mfgYear, _brand, _price, _stringNum = 6, _isUsed, _longNecked) {
+    super(_mfgYear, _brand, _price, (_stringNum = 6), _isUsed)
+    this.isLongNeck = _longNecked
+  }
+}
 const gibsonSG = new ClassicGuitar(1975, `Gibson`, 12000, 6, false)
 
 console.log(gibsonSG.play())
