@@ -4,6 +4,7 @@
   "description": "why should we use OOP?",
   "main": "example.js",
   "scripts": {
+    "dev": "nodemon ./guitar-shop/server/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -20,6 +21,7 @@
   "dependencies": {
     "cors": "^2.8.5",
     "date-fns": "^2.25.0",
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "nodemon": "^2.0.14"
   }
 }
