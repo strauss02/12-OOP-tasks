@@ -65,6 +65,26 @@ class Player extends Person {
     this.position = position
     this.celebrationSentence = celebrationSentence
   }
+
+  //METHODS
+  celebrateGoal() {
+    const newSalary = this.salary * 1.025
+    this.salary = newSalary
+    console.log(this.celebrationSentence)
+  }
+
+  //GETTERS
+  get strongLeg() {
+    return this.strongLeg
+  }
+  get position() {
+    return this.position
+  }
+  get celebrationSentence() {
+    return this.celebrationSentence
+  }
+
+  //SETTERS
 }
 
 const baby = new Person('Jimmy', 'Chickpea', `5$`, 2)
