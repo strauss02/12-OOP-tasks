@@ -13,7 +13,9 @@
                                                                                       
  /*************************************************************************/
 
+import { format } from 'date-fns'
 import crypto from 'crypto'
+console.log(format(new Date(), 'P'))
 
 /**
     "...Create a class that represents a Person..."
@@ -60,7 +62,16 @@ class Player extends Person {
   strongLeg
   Position
   celebrationSentence
-  constructor(strongLeg, position, celebrationSentence) {
+  constructor(
+    strongLeg,
+    position,
+    celebrationSentence,
+    firstName,
+    surName,
+    salary,
+    age
+  ) {
+    super(firstName, surName, salary, age)
     this.strongLeg = strongLeg
     this.position = position
     this.celebrationSentence = celebrationSentence
@@ -85,11 +96,57 @@ class Player extends Person {
   }
 
   //SETTERS
+  set position(val) {
+    this.position = val
+  }
+  set celebrationSentence(val) {
+    this.celebrationSentence = val
+  }
+}
+
+class GoalKeeper extends Person {
+  isLeftHanded
+  lastGoalConceded
+  constructor(
+    firstName,
+    surName,
+    salary,
+    age,
+    isLeftHanded,
+    lastGoalConceded = format(new Date(), 'P')
+  ) {
+    super(firstName, surName, salary, age)
+    this.isLeftHanded = isLeftHanded
+    this.lastGoalConceded = lastGoalConceded
+  }
+
+  //METHODS
+  concededAGoal() {
+    this.lastGoalConceded = format(new Date(), 'P')
+    this.salary = this.salary * 0.975
+  }
+
+  //GETTERS
+  get isLeftHanded() {
+    return this.isLeftHanded
+  }
+  get lastGoalConceded() {
+    return this.lastGoalConceded
+  }
+
+  //SETTERS
+  set lastGoalConceded(val) {
+    this.lastGoalConceded = val
+  }
 }
 
 const baby = new Person('Jimmy', 'Chickpea', `5$`, 2)
 console.log(baby)
 console.log(baby.salary)
+baby.salary = `10$`
+console.log(baby.salary)
+const valdes = new GoalKeeper('victor', 'valdes', `1200000$'`, 35, true)
+console.log(valdes)
 
 /**
  *
