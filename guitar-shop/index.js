@@ -1,4 +1,5 @@
 import crypto from 'crypto'
+
 /** Constants */
 EMOJI_DICT = {
   0: '💥',
@@ -8,6 +9,8 @@ EMOJI_DICT = {
   4: '💢',
   5: '🕺',
 }
+
+const EMOJI_ARR = ['💥', '🤘', '🎵', '📢', '💢', '🕺']
 
 SOUND_DICT = {
   '🎸🎸🎸': 'Electric Guitar',
@@ -44,22 +47,26 @@ class ClassicGuitar {
     this.price = price
     this.isUsed = isUsed
     this.brand = brand
-    //random id based on crypto package
+    //random id based on crypto module
     this.id = crypto.randomBytes(2).toString('hex')
   }
 
+  /**Gets a guitar sound and returns matching guitar type. */
   static detectSound(sound) {
-    console.log(sound)
     return SOUND_DICT[sound]
   }
 
   play() {
+    this.isUsed = true
     return `🎶🎶🎶`
   }
 
+  //*** SETTERS ***//
   set price(num) {
     this.price = num
   }
+
+  //*** GETTERS ***//
 
   get price() {
     return this.price
@@ -80,11 +87,13 @@ class ClassicGuitar {
 
 //*** Electric Guitar Subclass **/
 class ElectricGuitar extends ClassicGuitar {
+  isLongNeck
   constructor(mfgYear, brand, price, stringNum = 6, isUsed, longNecked) {
     super(mfgYear, brand, price, stringNum, isUsed)
     this.isLongNeck = longNecked
   }
   play() {
+    this.isUsed = true
     return `🎸🎸🎸`
   }
 }
@@ -94,21 +103,35 @@ class BassGuitar extends ClassicGuitar {
   constructor(mfgYear, brand, price, stringNum = 4, isUsed) {
     super(mfgYear, brand, price, stringNum, isUsed)
   }
+
+  play() {
+    this.isUsed = true
+    return '🔊🔊🔊'
+  }
+
   playSolo() {
-    const soloArr = []
-    for (let i = 0; i < 6; i++) {
-      soloArr.push(EMOJI_DICT[getRandomNum(6)])
-    }
+    // const soloArr = []
+    // for (let i = 0; i < 6; i++) {
+    //   soloArr.push(EMOJI_DICT[getRandomNum(6)])
+    // }
+
+    //for each emoji item, pick a random emoji, (randomized according to array length) and add it to the array
+    const soloArr = EMOJI_ARR.map(() => {
+      return EMOJI_ARR[Math.floor(Math.random() * EMOJI_ARR.length)]
+    })
     return soloArr
   }
 }
-
 /****** TESTING ******/
-const gibsonSG = new ClassicGuitar(1975, `Gibson`, 12000, 6, false)
-const ibanezSR = new BassGuitar(1975, `Ibanez`, 12000, 6, false)
+const gibsonSG = new ElectricGuitar(1975, `Gibson`, 12000, 6, false)
+const ibanezSR = new BassGuitar(1998, `Ibanez`, 4600, 4, false)
+const rickenbacker = new BassGuitar(1972, `Rickenbacker`, 12000, 4, true)
 
+console.log(gibsonSG.isUsed)
 console.log(ClassicGuitar.detectSound(gibsonSG.play()))
 console.log(ibanezSR.playSolo())
 console.log(gibsonSG.play())
+console.log(gibsonSG.isUsed)
 console.log(gibsonSG.id)
+console.log(rickenbacker.isUsed)
 console.log(Object.entries(ibanezSR))
