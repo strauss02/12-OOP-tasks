@@ -44,6 +44,12 @@ body {
   width: 50%;
 }
 
+/* FORM STYLING */
+
+#type-select {
+  width: 200px;
+}
+
 .form-box {
   background-color: skyblue;
   width: 50%;

@@ -17,7 +17,21 @@
         <div class="main-container">
 
             <div class="form-box">
-                color:
+                <select name="type" id="type-select">
+                    <option value="bass guitar">bass guitar</option>
+                    <option value="classical guitar">classical guitar</option>
+                    <option value="electric guitar">electric guitar</option>
+                </select>
+
+                <select name="brand" id="brand-select">
+                    <option value="">Fender</option>
+                    <option value="">Gibson</option>
+                    <option value="">Rickenbacker</option>
+                </select>
+                <label for="strings">strings:</label>
+                <input type="number" id="strings" name="strings" >
+                <label for="price">price:</label>
+                <input type="number" id="price" name="price" >
             </div>
 
             <div id="guitar-box">

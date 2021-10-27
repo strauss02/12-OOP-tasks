@@ -139,15 +139,3 @@ class GoalKeeper extends Person {
     this.lastGoalConceded = val
   }
 }
-
-const baby = new Person('Jimmy', 'Chickpea', `5$`, 2)
-console.log(baby)
-console.log(baby.salary)
-baby.salary = `10$`
-console.log(baby.salary)
-const valdes = new GoalKeeper('victor', 'valdes', `1200000$'`, 35, true)
-console.log(valdes)
-
-/**
- *
- */
