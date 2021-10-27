@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/strauss02/12-OOP-tasks#readme",
   "dependencies": {
+    "axios": "^0.24.0",
     "cors": "^2.8.5",
     "date-fns": "^2.25.0",
     "express": "^4.17.1",
