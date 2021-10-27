@@ -1,0 +1,28 @@
+{
+  "name": "12-OOP-tasks",
+  "version": "1.0.0",
+  "description": "why should we use OOP?",
+  "main": "example.js",
+  "scripts": {
+    "dev": "nodemon ./guitar-shop/server/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/strauss02/12-OOP-tasks.git"
+  },
+  "keywords": [],
+  "author": "ahmed <strauss02@hotmail.co.il>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/strauss02/12-OOP-tasks/issues"
+  },
+  "homepage": "https://github.com/strauss02/12-OOP-tasks#readme",
+  "dependencies": {
+    "axios": "^0.24.0",
+    "cors": "^2.8.5",
+    "date-fns": "^2.25.0",
+    "express": "^4.17.1",
+    "nodemon": "^2.0.14"
+  }
+}
