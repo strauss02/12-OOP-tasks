@@ -1,7 +1,7 @@
 import crypto from 'crypto'
 
 /** Constants */
-EMOJI_DICT = {
+const EMOJI_DICT = {
   0: '💥',
   1: '🤘',
   2: '🎵',
@@ -12,7 +12,7 @@ EMOJI_DICT = {
 
 const EMOJI_ARR = ['💥', '🤘', '🎵', '📢', '💢', '🕺']
 
-SOUND_DICT = {
+const SOUND_DICT = {
   '🎸🎸🎸': 'Electric Guitar',
   '🔊🔊🔊': 'Bass Guitar',
   '🎶🎶🎶': 'Classic Guitar',
@@ -51,13 +51,20 @@ class ClassicGuitar {
     this.id = crypto.randomBytes(2).toString('hex')
   }
 
+  //*** METHODS ***//
   /**Gets a guitar sound and returns matching guitar type. */
   static detectSound(sound) {
     return SOUND_DICT[sound]
   }
 
+  becomeWorn = (object) => {
+    object.isUsed = true
+    const newPrice = object.price * 0.9
+    object.price = newPrice
+  }
+
   play() {
-    this.isUsed = true
+    this.becomeWorn(this)
     return `🎶🎶🎶`
   }
 
@@ -93,7 +100,7 @@ class ElectricGuitar extends ClassicGuitar {
     this.isLongNeck = longNecked
   }
   play() {
-    this.isUsed = true
+    this.becomeWorn(this)
     return `🎸🎸🎸`
   }
 }
@@ -105,7 +112,7 @@ class BassGuitar extends ClassicGuitar {
   }
 
   play() {
-    this.isUsed = true
+    this.becomeWorn(this)
     return '🔊🔊🔊'
   }
 
@@ -128,10 +135,14 @@ const ibanezSR = new BassGuitar(1998, `Ibanez`, 4600, 4, false)
 const rickenbacker = new BassGuitar(1972, `Rickenbacker`, 12000, 4, true)
 
 console.log(gibsonSG.isUsed)
+console.log(gibsonSG.price)
 console.log(ClassicGuitar.detectSound(gibsonSG.play()))
-console.log(ibanezSR.playSolo())
-console.log(gibsonSG.play())
+console.log(gibsonSG.price)
 console.log(gibsonSG.isUsed)
+console.log(ibanezSR.playSolo())
+console.log(ibanezSR.price)
+console.log(ibanezSR.play())
+console.log(ibanezSR.price)
 console.log(gibsonSG.id)
 console.log(rickenbacker.isUsed)
 console.log(Object.entries(ibanezSR))
