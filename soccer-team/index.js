@@ -6,8 +6,8 @@
   \/_____/   \/_____/   \/_____/   \/_____/   \/_/ /_/   \/_____/ 
                                                                   
  ______   ______                                                  
-/\  ___\ /\  ___\                   coded by strauss02
-\ \  __\ \ \ \____                   for the cyber4s training program         
+/\  ___\ /\  ___\           coded by strauss02
+\ \  __\ \ \ \____             for the cyber4s training program         
  \ \_\    \ \_____\                                               
   \/_/     \/_____/                                               
                                                                                       
@@ -29,6 +29,7 @@ class Person {
     this.surName = surName
     this.salary = salary
     this.age = age
+    // generate random 4num ID
     this.id = crypto.randomBytes(2).toString('hex')
   }
 
@@ -52,6 +53,17 @@ class Person {
   }
   set age(val) {
     this.age = val
+  }
+}
+
+class Player extends Person {
+  strongLeg
+  Position
+  celebrationSentence
+  constructor(strongLeg, position, celebrationSentence) {
+    this.strongLeg = strongLeg
+    this.position = position
+    this.celebrationSentence = celebrationSentence
   }
 }
 
