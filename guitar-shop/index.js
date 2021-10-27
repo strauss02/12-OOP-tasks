@@ -1,3 +1,4 @@
+const crypto = require('crypto')
 /** Constants */
 EMOJI_DICT = {
   0: '💥',
@@ -6,6 +7,12 @@ EMOJI_DICT = {
   3: '📢',
   4: '💢',
   5: '🕺',
+}
+
+SOUND_DICT = {
+  '🎸': 'Electric Guitar',
+  '🔊': 'Bass Guitar',
+  '🎶': 'Classic Guitar',
 }
 
 /** Utility Functions */
@@ -17,21 +24,27 @@ EMOJI_DICT = {
  */
 const getRandomNum = (max) => {
   const res = Math.floor(Math.random() * max)
-  console.log(res)
   return res
 }
 
 /** Guitar store classes */
 
 class ClassicGuitar {
-  constructor(_mfgYear, _brand, _price, _stringNum = 6, _isUsed) {
-    this.yearOfManufacting = _mfgYear
-    console.log(`test`)
-    this.numberOfStrings = _stringNum
-    this.price = _price
-    this.isUsed = _isUsed
-    this.brand = _brand
-    // this.id = //randomID
+  //public fields
+  yearOfManufacting
+  numberOfStrings
+  price
+  isUsed
+  brand
+  id
+
+  constructor(mfgYear, brand, price, stringNum = 6, isUsed) {
+    this.yearOfManufacting = mfgYear
+    this.numberOfStrings = stringNum
+    this.price = price
+    this.isUsed = isUsed
+    this.brand = brand
+    this.id = crypto.randomBytes(2).toString('hex')
   }
 
   static detectSound(sound) {
@@ -43,15 +56,15 @@ class ClassicGuitar {
   }
 
   set price(num) {
-    this._price = num
+    this.price = num
   }
 
   get price() {
-    return this._price
+    return this.price
   }
 
   get brandName() {
-    return this._brand
+    return this.brand
   }
 
   get manufactureYear() {
@@ -63,19 +76,21 @@ class ClassicGuitar {
   }
 }
 
+//*** Electric Guitar Subclass **/
 class ElectricGuitar extends ClassicGuitar {
-  constructor(_mfgYear, _brand, _price, _stringNum = 6, _isUsed, _longNecked) {
-    super(_mfgYear, _brand, _price, _stringNum, _isUsed)
-    this.isLongNeck = _longNecked
+  constructor(mfgYear, brand, price, stringNum = 6, isUsed, longNecked) {
+    super(mfgYear, brand, price, stringNum, isUsed)
+    this.isLongNeck = longNecked
   }
   play() {
     return `🎸🎸🎸`
   }
 }
 
+//*** Bass Guitar Subclass **/
 class BassGuitar extends ClassicGuitar {
-  constructor(_mfgYear, _brand, _price, _stringNum = 4, _isUsed, _longNecked) {
-    super(_mfgYear, _brand, _price, _stringNum, _isUsed)
+  constructor(mfgYear, brand, price, stringNum = 4, isUsed, longNecked) {
+    super(mfgYear, brand, price, stringNum, isUsed)
   }
   playSolo() {
     const soloArr = []
@@ -85,10 +100,12 @@ class BassGuitar extends ClassicGuitar {
     return soloArr
   }
 }
+
+/****** TESTING ******/
 const gibsonSG = new ClassicGuitar(1975, `Gibson`, 12000, 6, false)
 const ibanezSR = new BassGuitar(1975, `Gibson`, 12000, 6, false)
 
 console.log(ClassicGuitar.detectSound(gibsonSG.play()))
 console.log(ibanezSR.playSolo())
-
 console.log(gibsonSG.play())
+console.log(gibsonSG.id)
