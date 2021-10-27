@@ -1,16 +1,22 @@
 /** Constants */
 EMOJI_DICT = {
-  1: '💥',
-  2: '🤘',
-  3: '🎵',
-  4: '📢',
-  5: '💢',
-  6: '🕺',
+  0: '💥',
+  1: '🤘',
+  2: '🎵',
+  3: '📢',
+  4: '💢',
+  5: '🕺',
 }
 
 /** Utility Functions */
-const getRandomNum = () => {
-  const res = Math.floor((Math.random() * 10) / 6)
+
+/**
+ *  Generates a random number between zero and the number passed as argument.
+ * @param {num} max the maximal value to be generated
+ * @returns a random number between zero and the {max} number.
+ */
+const getRandomNum = (max) => {
+  const res = Math.floor(Math.random() * max)
   console.log(res)
   return res
 }
@@ -74,7 +80,7 @@ class BassGuitar extends ClassicGuitar {
   playSolo() {
     const soloArr = []
     for (let i = 0; i < 6; i++) {
-      soloArr.push(EMOJI_DICT[getRandomNum()])
+      soloArr.push(EMOJI_DICT[getRandomNum(6)])
     }
     return soloArr
   }
