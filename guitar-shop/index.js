@@ -1,3 +1,5 @@
+/** Imports and modules */
+//crypto is used for generating unique IDs.
 import crypto from 'crypto'
 
 /** Constants */
@@ -57,6 +59,7 @@ class ClassicGuitar {
     return SOUND_DICT[sound]
   }
 
+  //a helper function to be executed each time the guitar gets played
   becomeWorn = (object) => {
     object.isUsed = true
     const newPrice = object.price * 0.9
@@ -143,6 +146,8 @@ console.log(ibanezSR.playSolo())
 console.log(ibanezSR.price)
 console.log(ibanezSR.play())
 console.log(ibanezSR.price)
+console.log(gibsonSG.id)
+console.log(gibsonSG.id)
 console.log(gibsonSG.id)
 console.log(rickenbacker.isUsed)
 console.log(Object.entries(ibanezSR))
