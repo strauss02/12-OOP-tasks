@@ -1,0 +1,65 @@
+* {
+  --main-bg-color: #777;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  background-color: seagreen;
+}
+
+#root {
+  background-color: var(--main-bg-color);
+  width: 500px;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.top-bar {
+  width: 100%;
+  height: 100px;
+  background-color: tomato;
+}
+
+.bottom-bar {
+  width: 100%;
+  height: 100px;
+  background-color: tomato;
+}
+
+.main-container {
+  background-color: blue;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: stretch;
+  align-content: stretch;
+  justify-content: start;
+}
+
+#guitar-box {
+  background-color: saddlebrown;
+  width: 50%;
+}
+
+.form-box {
+  background-color: skyblue;
+  width: 50%;
+}
+
+/* GUITAR STYLING */
+
+.guitar {
+  fill: rgb(77, 24, 24);
+}
+
+.pickguard {
+  fill: white;
+}
+
+#fender {
+  height: 500px;
+  width: 300px;
+}
