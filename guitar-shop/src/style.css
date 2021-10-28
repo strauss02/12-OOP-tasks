@@ -51,6 +51,10 @@ body {
 }
 
 .form-box {
+  display: flex;
+  flex-direction: column;
+  margin: 1rem;
+  padding: 1rem;
   background-color: skyblue;
   width: 50%;
 }
